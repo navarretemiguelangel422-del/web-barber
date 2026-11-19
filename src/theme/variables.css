@@ -1,0 +1,258 @@
+/* Barbería M1 - Dark & Gold Luxury Theme */
+
+:root {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Ionic Primary: Rich Gold */
+  --ion-color-primary: #d4af37;
+  --ion-color-primary-rgb: 212, 175, 55;
+  --ion-color-primary-contrast: #0f1115;
+  --ion-color-primary-contrast-rgb: 15, 17, 21;
+  --ion-color-primary-shade: #ba992f;
+  --ion-color-primary-tint: #dcba4b;
+
+  /* Ionic Secondary: Warm Gold Accent */
+  --ion-color-secondary: #e6c65a;
+  --ion-color-secondary-rgb: 230, 198, 90;
+  --ion-color-secondary-contrast: #0f1115;
+  --ion-color-secondary-contrast-rgb: 15, 17, 21;
+  --ion-color-secondary-shade: #caa94f;
+  --ion-color-secondary-tint: #ebd072;
+
+  /* Ionic Dark / Charcoal Backgrounds */
+  --ion-color-dark: #0d0e12;
+  --ion-color-dark-rgb: 13, 14, 18;
+  --ion-color-dark-contrast: #f3f4f6;
+  --ion-color-dark-contrast-rgb: 243, 244, 246;
+  --ion-color-dark-shade: #0a0b0e;
+  --ion-color-dark-tint: #1c1e24;
+
+  --ion-color-medium: #8e95a5;
+  --ion-color-medium-rgb: 142, 149, 165;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #7d8392;
+  --ion-color-medium-tint: #9ba1af;
+
+  --ion-color-light: #1c1e25;
+  --ion-color-light-rgb: 28, 30, 37;
+  --ion-color-light-contrast: #f3f4f6;
+  --ion-color-light-contrast-rgb: 243, 244, 246;
+  --ion-color-light-shade: #17181e;
+  --ion-color-light-tint: #2b2e38;
+
+  /* Base Background & Text */
+  --ion-background-color: #0b0c10;
+  --ion-background-color-rgb: 11, 12, 16;
+  --ion-text-color: #e5e7eb;
+  --ion-text-color-rgb: 229, 231, 235;
+
+  /* Ionic Element Overrides */
+  --ion-card-background: #14161d;
+  --ion-item-background: #151821;
+  --ion-toolbar-background: #0d0f14;
+  --ion-tab-bar-background: #0f1117;
+  --ion-border-color: rgba(212, 175, 55, 0.18);
+
+  /* Gold Gradients */
+  --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa820a 100%);
+  --gold-gradient-soft: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.03) 100%);
+  --card-gradient: linear-gradient(180deg, #171922 0%, #111319 100%);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--ion-background-color);
+  color: var(--ion-text-color);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, .brand-font {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+/* Tab Bar Styling */
+ion-tab-bar {
+  --background: rgba(14, 16, 22, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-bottom: env(safe-area-inset-bottom, 8px);
+  padding-top: 6px;
+  height: 64px;
+}
+
+ion-tab-button {
+  --color: #8b92a2;
+  --color-selected: #d4af37;
+  transition: all 0.2s ease;
+}
+
+ion-tab-button ion-icon {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+  transition: transform 0.2s ease;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.45));
+}
+
+ion-tab-button ion-label {
+  font-weight: 500;
+  font-size: 0.76rem;
+  letter-spacing: 0.3px;
+}
+
+/* Header & Toolbar */
+ion-header {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+ion-toolbar {
+  --background: #0d0f14;
+  --color: #ffffff;
+  --border-width: 0;
+}
+
+ion-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #d4af37;
+}
+
+/* Desktop Wrapper Layout: Mobile-first centered */
+.app-container {
+  max-width: 640px;
+  margin: 0 auto;
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 860px;
+  }
+}
+
+/* Luxury Cards */
+ion-card.luxury-card {
+  background: var(--card-gradient);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  margin: 16px 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+ion-card.luxury-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Luxury Gold Button */
+.btn-gold {
+  --background: #d4af37;
+  --background-hover: #e0be53;
+  --background-activated: #ba992f;
+  --color: #0b0c10;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+  --border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-gold:hover {
+  filter: brightness(1.08);
+}
+
+.btn-outline-gold {
+  --border-color: #d4af37;
+  --border-width: 1.5px;
+  --color: #d4af37;
+  --border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Segment Styling */
+ion-segment {
+  background: #141720;
+  border-radius: 12px;
+  padding: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+ion-segment-button {
+  --color: #9ba1af;
+  --color-checked: #0b0c10;
+  --indicator-color: #d4af37;
+  --indicator-box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-height: 40px;
+}
+
+/* Inputs & Selects */
+ion-item.luxury-input-item {
+  --background: #13161e;
+  --border-color: rgba(212, 175, 55, 0.2);
+  --highlight-color-focused: #d4af37;
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  transition: border-color 0.2s ease;
+}
+
+ion-item.luxury-input-item:focus-within {
+  border-color: #d4af37;
+}
+
+ion-label.luxury-label {
+  color: #c5cbd8;
+  font-weight: 500;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-fab-button {
+  --background: #25d366;
+  --background-hover: #20bd5a;
+  --color: #ffffff;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  animation: pulseFab 3s infinite;
+}
+
+@keyframes pulseFab {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}

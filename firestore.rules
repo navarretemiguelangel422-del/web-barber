@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Colección de Servicios: Lectura pública para clientes del catálogo
+    match /servicios/{servicioId} {
+      allow read: if true;
+      allow write: if request.auth != null; // Solo administradores autenticados o carga inicial
+    }
+
+    // Colección de Productos: Lectura pública para la vitrina del catálogo
+    match /productos/{productoId} {
+      allow read: if true;
+      allow write: if request.auth != null; // Solo administradores autenticados o carga inicial
+    }
+
+    // Colección de Citas:
+    // - Permitir lectura pública para consultar horarios ocupados por fecha y barbero.
+    // - Permitir creación (agendar) si contiene los campos obligatorios del turno.
+    // - Prohibir explícitamente modificación y eliminación para proteger los registros de la barbería.
+    match /citas/{citaId} {
+      allow read: if true;
+      
+      allow create: if request.resource.data.keys().hasAll(['nombre', 'telefono', 'servicio', 'barbero', 'fecha', 'hora'])
+                    && request.resource.data.nombre is string
+                    && request.resource.data.nombre.size() > 0
+                    && request.resource.data.telefono is string
+                    && request.resource.data.barbero is string
+                    && request.resource.data.fecha is string
+                    && request.resource.data.hora is string;
+
+      allow update, delete: if false;
+    }
+  }
+}
